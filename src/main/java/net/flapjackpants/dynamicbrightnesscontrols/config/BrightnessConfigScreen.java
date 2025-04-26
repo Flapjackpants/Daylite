@@ -13,14 +13,14 @@ public class BrightnessConfigScreen {
         ModConfig config = ModConfig.get();
         ConfigBuilder builder = ConfigBuilder.create()
                 .setParentScreen(parent)
-                .setTitle(Text.literal("Dynamic Brightness Controls"));
+                .setTitle(Text.literal("Daylite"));
 
         builder.setSavingRunnable(() -> {
             // Save config to file here if you implement persistence
             System.out.println("Saved brightness config!");
         });
 
-        ConfigCategory gammaSettings = builder.getOrCreateCategory(Text.literal("Dynamic Brightness Controls"));
+        ConfigCategory gammaSettings = builder.getOrCreateCategory(Text.literal("Daylite"));
 
         builder.setSavingRunnable(ModConfig::save);
         ConfigEntryBuilder entryBuilder = builder.entryBuilder();
@@ -28,7 +28,7 @@ public class BrightnessConfigScreen {
         gammaSettings.addEntry(entryBuilder.startBooleanToggle(
                         Text.literal("Enable Dynamic Brightness"), ModConfig.get().modEnabled)
                 .setDefaultValue(true)
-                .setTooltip(Text.literal("Toggle all Dynamic Brightness Controls mod features"))
+                .setTooltip(Text.literal("Toggle all Daylite mod features"))
                 .setSaveConsumer(newValue -> ModConfig.get().modEnabled = newValue)
                 .build()
         );
@@ -85,7 +85,7 @@ public class BrightnessConfigScreen {
 
         gammaSettings.addEntry(entryBuilder.startDoubleField(
                         Text.literal("Transition Time"), ModConfig.get().gammaTransitionTime)
-                .setDefaultValue(1.0)
+                .setDefaultValue(5.0)
                 .setTooltip(Text.literal("Seconds it takes to transition from one gamma value to another"))
                 .setMin(0.1)
                 .setSaveConsumer(newValue -> ModConfig.get().gammaTransitionTime = newValue)

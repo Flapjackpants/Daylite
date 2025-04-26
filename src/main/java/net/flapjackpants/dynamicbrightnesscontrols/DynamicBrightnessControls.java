@@ -14,7 +14,7 @@ public class DynamicBrightnessControls implements ModInitializer {
 	public void onInitialize() {
 		// Initialization logic here
 		ModConfig.load();
-		System.out.println("Dynamic Brightness Controls initialized!");
+		System.out.println("Simple Brightness Transitions initialized!");
 		// Maybe register events here
 	}
 }
