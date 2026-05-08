@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
 	"id": "dynamicbrightnesscontrols",
-	"version": "1.0.0",
+	"version": "${version}",
 	"name": "Daylite",
 	"description": "This is a mod designed to allow seamless brightness settings transitions between different Minecraft environments",
 	"authors": [
@@ -29,14 +29,17 @@
 		]
 	},
 	"mixins": [
-		"dynamicbrightnesscontrols.mixins.json"
+		{
+			"config": "dynamicbrightnesscontrols.client.mixins.json",
+			"environment": "client"
+		}
 	],
 	"depends": {
-		"fabricloader": ">=0.16.10",
-		"minecraft": "~1.21.5",
-		"java": ">=21",
+		"fabricloader": ">=0.19.0",
+		"minecraft": "~26.1.2",
+		"java": ">=25",
 		"fabric-api": "*",
-		"cloth-config": ">=18.0.0"
+		"cloth-config": ">=26.1.0"
 	},
 	"suggests": {
 		"another-mod": "*"
