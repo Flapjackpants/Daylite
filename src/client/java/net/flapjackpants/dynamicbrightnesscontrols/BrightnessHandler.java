@@ -5,6 +5,7 @@ import net.flapjackpants.dynamicbrightnesscontrols.mixin.MixinSimpleOption;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.Options;
 import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.dimension.BuiltinDimensionTypes;
@@ -20,7 +21,10 @@ public class BrightnessHandler {
 		ClientLevel level = client.level;
 		Holder<DimensionType> dimType = level.dimensionTypeRegistration();
 
-		int skyLight = level.getLightEngine().getLayerListener(LightLayer.SKY).getLightValue(client.player.blockPosition());
+		// Sample at eye level so partial-height blocks (soul sand, slabs, paths, etc.)
+		// are not treated as caves when the floored feet position sits inside them.
+		BlockPos lightPos = BlockPos.containing(client.player.getEyePosition());
+		int skyLight = level.getLightEngine().getLayerListener(LightLayer.SKY).getLightValue(lightPos);
 		boolean hasSkyLight = skyLight > 7;
 		double day = ModConfig.get().overworldGamma;
 		double night = ModConfig.get().nightGamma;
