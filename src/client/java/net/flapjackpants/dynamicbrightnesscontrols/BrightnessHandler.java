@@ -17,6 +17,7 @@ public class BrightnessHandler {
 
 	public static void updateBrightness() {
 		if (client.player == null || client.level == null || !ModConfig.get().modEnabled) return;
+		if (TweakerooCompat.isGammaOverrideEnabled()) return;
 
 		ClientLevel level = client.level;
 		Holder<DimensionType> dimType = level.dimensionTypeRegistration();

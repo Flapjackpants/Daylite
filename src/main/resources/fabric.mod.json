@@ -42,7 +42,7 @@
 		"cloth-config": ">=26.2.0"
 	},
 	"suggests": {
-		"another-mod": "*"
+		"tweakeroo": "*"
 	},
 	"custom": {
 		"modmenu:api": true,
