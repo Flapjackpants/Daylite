@@ -37,10 +37,10 @@ dependencies {
 	implementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 
-	clientImplementation("me.shedaniel.cloth:cloth-config-fabric:26.2.155") {
+	clientImplementation("me.shedaniel.cloth:cloth-config-fabric:26.3.158") {
 		exclude(group: "net.fabricmc.fabric-api")
 	}
-	clientImplementation "com.terraformersmc:modmenu:20.0.1"
+	clientImplementation "com.terraformersmc:modmenu:21.0.0-beta.1"
 }
 
 processResources {
